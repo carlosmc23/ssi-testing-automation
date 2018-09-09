@@ -54,11 +54,21 @@ public class ProjectCreate extends BasePage {
     }
 
     public void initDateProjectTextBox(String initDate) {
+        CommonEvents.setInputField(initDateProject, initDate);
+        initDateProject.clear();
+        CommonEvents.setInputField(initDateProject, initDate);
+        initDateProject.clear();
+        CommonEvents.setInputField(initDateProject, initDate);
         initDateProject.clear();
         CommonEvents.setInputField(initDateProject, initDate);
     }
 
     public void endDateProjectTextBox(String endDate) {
+        CommonEvents.waitForElementIsVisible(createButon);
+        endDateProject.clear();
+        CommonEvents.setInputField(endDateProject, endDate);
+        endDateProject.clear();
+        CommonEvents.setInputField(endDateProject, endDate);
         endDateProject.clear();
         CommonEvents.setInputField(endDateProject, endDate);
     }

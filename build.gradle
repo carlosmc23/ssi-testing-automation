@@ -47,7 +47,7 @@ task runFeatures(type: Test) {
                            '--plugin pretty ' +
                            '--plugin json:build/cucumber/cucumber.json ' +
                            '--plugin rerun:build/cucumber/rerun.txt ']
-        jvmArgs = ['-Dbrowser=' + browser]
+        jvmArgs = ["-Dbrowser=$browser", "-Dbaseurl=$baseurl", "-Dselenium_hub_url=$selenium_hub_url"]
     }
 
     // show standard out and standard error of the test JVM(s) on the console

@@ -52,6 +52,11 @@ public class ProjectAssigCreate extends BasePage {
     }
 
     public void endDateProjectTextBox(String endDate) {
+        CommonEvents.waitForElementIsVisible(employeeSelect);
+        endDateAssig.clear();
+        CommonEvents.setInputField(endDateAssig, endDate);
+        endDateAssig.clear();
+        CommonEvents.setInputField(endDateAssig, endDate);
         endDateAssig.clear();
         CommonEvents.setInputField(endDateAssig, endDate);
     }

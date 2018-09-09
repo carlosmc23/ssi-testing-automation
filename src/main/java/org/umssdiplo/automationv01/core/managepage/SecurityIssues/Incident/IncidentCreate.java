@@ -57,8 +57,14 @@ public class IncidentCreate extends BasePage {
     }
 
     public void dateIncidentTextBox(String datIncident) {
+        CommonEvents.waitForElementIsVisible(employeeOption);
         dateIncident.clear();
         CommonEvents.setInputField(dateIncident, datIncident);
+        dateIncident.clear();
+        CommonEvents.setInputField(dateIncident, datIncident);
+        dateIncident.clear();
+        CommonEvents.setInputField(dateIncident, datIncident);
+
     }
 
     public void witnessIncidentTextBox(String witIncident) {

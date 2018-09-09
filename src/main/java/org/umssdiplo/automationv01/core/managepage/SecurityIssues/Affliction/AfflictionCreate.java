@@ -66,7 +66,6 @@ public class AfflictionCreate extends BasePage {
     }
 
     public void dateAfflictionBox(String datAffliction) {
-        dateAffliction.clear();
         CommonEvents.setInputField(dateAffliction, datAffliction);
     }
 

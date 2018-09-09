@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('AutomationTestChrome') {
             steps {
-                sh './gradlew runfeatures -DBROWSER=chrome'
+                sh './gradlew runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login'
             }
         }
         stage('AutomationTestFirefox') {
             steps {
-                sh './gradlew runfeatures -DBROWSER=firefox'
+                sh './gradlew runfeatures -Pbrowser=FIREFOX -Pbaseurl=http://10.20.0.3:4200/login'
             }
         }
         stage('PublishReport') {

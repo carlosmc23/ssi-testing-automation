@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('AutomationTests') {
-            parallels {
+            parallel {
                 stage('Chrome') {
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login'

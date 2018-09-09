@@ -2,14 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('AutomationTestChrome') {
-            steps {
-                sh './gradlew runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login'
-            }
-        }
-        stage('AutomationTestFirefox') {
-            steps {
-                sh './gradlew runfeatures -Pbrowser=FIREFOX -Pbaseurl=http://10.20.0.3:4200/login'
+        stage('AutomationTests') {
+            parallels {
+                stage('Chrome') {
+                    steps {
+                        sh './gradlew clean runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login'
+                    }
+                }
+                stage('Firefox') {
+                    steps {
+                        sh './gradlew clean runfeatures -Pbrowser=FIREFOX -Pbaseurl=http://10.20.0.3:4200/login'
+                    }
+                }
             }
         }
         stage('PublishReport') {

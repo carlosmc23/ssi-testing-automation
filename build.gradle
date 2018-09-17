@@ -83,7 +83,7 @@ def generateReport(String pathCucumber, String pathReport){
     configuration.setBuildNumber(buildNumber)
 // addidtional metadata presented on main page
     configuration.addClassifications("Platform", "Windows")
-    configuration.addClassifications("Browser", "Firefox", "Chrome")
+    configuration.addClassifications("Browser", "Firefox")
     configuration.addClassifications("Branch", "release/1.0")
 
     ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration)

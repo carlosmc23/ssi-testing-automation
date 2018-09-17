@@ -1,5 +1,5 @@
 pipeline {
-    agent nome
+    agent any
     stages {
         stage('AutomationTests') {
             parallel {

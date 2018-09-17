@@ -73,8 +73,8 @@ def generateReport(String pathCucumber, String pathReport){
 
     String buildNumber = "1"
     String projectName = "UMSS Diplomado"
-    boolean runWithJenkins = true
-    boolean parallelTesting = true
+    boolean runWithJenkins = false
+    boolean parallelTesting = false
 
     Configuration configuration = new Configuration(reportOutputDirectory, projectName)
 // optional configuration

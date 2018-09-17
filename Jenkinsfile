@@ -11,9 +11,9 @@ pipeline {
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: 'build/cucumber/reports',
-                            reportFiles: 'overview-features.html',
-                            reportName: "Automation test Report"
+                            reportDir: 'build/cucumber/reports/**/*',
+                            // reportFiles: 'overview-features.html',
+                            reportName: "Automation test Chrome Report"
                             ])
                     }
                 }
@@ -24,9 +24,9 @@ pipeline {
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: 'build/cucumber/reports',
-                            reportFiles: 'overview-features.html',
-                            reportName: "Automation test Report"
+                            reportDir: 'build/cucumber/reports/**/*',
+                            // reportFiles: 'overview-features.html',
+                            reportName: "Automation test Firefox Report"
                             ])  
                     }
                 }

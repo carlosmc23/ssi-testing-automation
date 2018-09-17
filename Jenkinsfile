@@ -1,10 +1,12 @@
 pipeline {
-    agent any
-
+    agent nome
     stages {
         stage('AutomationTests') {
             parallel {
                 stage('Chrome') {
+                    agent { 
+                        label 'chrome'
+                    }
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login' 
                         publishHTML (target: [
@@ -18,6 +20,9 @@ pipeline {
                     }
                 }
                 stage('Firefox') {
+                    agent { 
+                        label 'firefox'
+                    }
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=FIREFOX -Pbaseurl=http://10.20.0.3:4200/login' 
                         publishHTML (target: [

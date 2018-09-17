@@ -8,10 +8,10 @@ pipeline {
                         sh './gradlew clean runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login' 
                         archiveArtifacts artifacts: 'build/cucumber/reports/*/', fingerprint: true
                         publishHTML (target: [
-                            allowMissing: false,
+                            allowMissing: true,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: '../../jobs/ssi-testing-automation/branches/automation/builds/lastSuccessfulBuild',
+                            reportDir: 'build/cucumber/reports',
                             reportFiles: 'overview-features.html',
                             reportName: "Automation-test-Chrome-Report"
                             ])
@@ -25,10 +25,10 @@ pipeline {
                         sh './gradlew clean runfeatures -Pbrowser=FIREFOX -Pbaseurl=http://10.20.0.3:4200/login' 
                         archiveArtifacts artifacts: 'build/cucumber/reports/*/', fingerprint: true
                         publishHTML (target: [
-                            allowMissing: false,
+                            allowMissing: true,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: '../../jobs/ssi-testing-automation/branches/automation/builds/lastSuccessfulBuild',
+                            reportDir: 'build/cucumber/reports',
                             reportFiles: 'overview-features.html',
                             reportName: "Automation-test-Firefox-Report"
                             ])  

@@ -6,7 +6,7 @@ pipeline {
                 stage('Chrome') {
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login' 
-                        archiveArtifacts artifacts: 'build/cucumber/reports/cucumber-html-reports/', fingerprint: true
+                        archiveArtifacts artifacts: 'build/cucumber/reports/*/', fingerprint: true
                         publishHTML (target: [
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,
@@ -23,7 +23,7 @@ pipeline {
                     }
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=FIREFOX -Pbaseurl=http://10.20.0.3:4200/login' 
-                        archiveArtifacts artifacts: 'build/cucumber/reports/cucumber-html-reports/', fingerprint: true
+                        archiveArtifacts artifacts: 'build/cucumber/reports/*/', fingerprint: true
                         publishHTML (target: [
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,

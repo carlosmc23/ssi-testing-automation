@@ -3,7 +3,6 @@ pipeline {
 
     stages {
         stage('AutomationTests') {
-            parallel {
                 stage('Chrome') {
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login' 
@@ -13,7 +12,7 @@ pipeline {
                             keepAll: true,
                             reportDir: 'build/cucumber/reports',
                             reportFiles: 'overview-features.html',
-                            reportName: "Automation test Report"
+                            reportName: "Automation test Chrome Report"
                             ])
                     }
                 }
@@ -26,11 +25,10 @@ pipeline {
                             keepAll: true,
                             reportDir: 'build/cucumber/reports',
                             reportFiles: 'overview-features.html',
-                            reportName: "Automation test Report"
+                            reportName: "Automation test  Firefox Report"
                             ])  
                     }
                 }
-            }
         }
     }
 }

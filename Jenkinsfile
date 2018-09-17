@@ -6,13 +6,13 @@ pipeline {
                 stage('Chrome') {
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=CHROME -Pbaseurl=http://10.20.0.3:4200/login' 
-                        archiveArtifacts artifacts: 'build/cucumber/reports/*/', fingerprint: true
+                        archiveArtifacts artifacts: 'reports/*/', fingerprint: true
                         publishHTML (target: [
                             allowMissing: false,
-                            alwaysLinkToLastBuild: true,
+                            alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            // reportDir: 'build/cucumber/reports',
-                            // reportFiles: 'overview-features.html',
+                            reportDir: 'reports',
+                            reportFiles: 'overview-features.html',
                             reportName: "Automation-test-Chrome-Report"
                             ])
                     }
@@ -23,13 +23,13 @@ pipeline {
                     }
                     steps {
                         sh './gradlew clean runfeatures -Pbrowser=FIREFOX -Pbaseurl=http://10.20.0.3:4200/login' 
-                        archiveArtifacts artifacts: 'build/cucumber/reports/*/', fingerprint: true
+                        archiveArtifacts artifacts: 'reports/*/', fingerprint: true
                         publishHTML (target: [
                             allowMissing: false,
-                            alwaysLinkToLastBuild: true,
+                            alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            // reportDir: 'build/cucumber/reports',
-                            // reportFiles: 'overview-features.html',
+                            reportDir: 'reports',
+                            reportFiles: 'overview-features.html',
                             reportName: "Automation-test-Firefox-Report"
                             ])  
                     }

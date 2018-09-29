@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('SeleniumHub'){
             steps {
-                sh 'docker-compose down -f docker-compose/docker-compose.yml'
+                sh 'docker-compose -f docker-compose/docker-compose.yml down'
                 echo 'Starting Selenium Hub ...'
-                sh 'docker-compose up -d -f docker-compose/docker-compose.yml'
+                sh 'docker-compose -f docker-compose/docker-compose.yml up -d'
             }
         }
         stage('AutomationTests') {
@@ -46,7 +46,7 @@ pipeline {
     }
     post {
         always {
-            sh 'docker-compose down -f docker-compose/docker-compose.yml'
+            sh 'docker-compose -f docker-compose/docker-compose.yml down'
         }
     }
 }

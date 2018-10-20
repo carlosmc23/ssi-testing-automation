@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('SeleniumHub'){
-            steps {
-                sh 'sudo docker-compose -f docker-compose/docker-compose.yml down'
-                echo 'Starting Selenium Hub ...'
-                sh 'sudo docker-compose -f docker-compose/docker-compose.yml up -d'
-            }
-        }
         stage('AutomationTests') {
             parallel {
                 stage('Chrome') {
@@ -42,11 +35,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
-    post {
-        always {
-            sh 'sudo docker-compose -f docker-compose/docker-compose.yml down'
         }
     }
 }
